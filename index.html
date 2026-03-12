@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Priyanka Srivastava — Senior HRPA · Accenture</title>
+  <meta name="description" content="Senior HRPA at Accenture | Global HR Strategist | Talent · Analytics · Gen AI"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ╔═══════════════════════════════════════╗
+       ║  DESIGN SYSTEM                        ║
+       ╚═══════════════════════════════════════╝ */
+    :root {
+      --ivory:      #F8F3EB;
+      --warm-white: #FDFAF6;
+      --parchment:  #EDE7DC;
+      --charcoal:   #1C1C1C;
+      --charcoal-2: #2A2A2A;
+      --charcoal-3: #3A3836;
+      --champagne:  #B8903C;
+      --champ-lt:   #D4AA58;
+      --champ-pale: #F0E4C8;
+      --terra:      #8B4A2F;
+      --terra-lt:   #A85C3E;
+      --sage:       #4A6355;
+      --muted:      #8A8278;
+      --muted-lt:   #B0A99F;
+      --rule:       rgba(184,144,60,0.25);
+      --border-dk:  rgba(28,28,28,0.1);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Jost',sans-serif;
+      background:var(--ivory);
+      color:var(--charcoal);
+      overflow-x:hidden;
+    }
+
+    /* CUSTOM CURSOR */
+    body { cursor:none; }
+    #cur {
+      position:fixed; width:10px; height:10px; border-radius:50%;
+      background:var(--champagne); pointer-events:none; z-index:9999;
+      transform:translate(-50%,-50%);
+      transition:width .3s,height .3s,background .3s;
+      mix-blend-mode:multiply;
+    }
+    #cur-ring {
+      position:fixed; width:38px; height:38px; border-radius:50%;
+      border:1px solid var(--champagne); pointer-events:none; z-index:9998;
+      transform:translate(-50%,-50%); opacity:0.5;
+    }
+    body.hov #cur { width:24px; height:24px; background:var(--terra); }
+    body.hov #cur-ring { width:50px; height:50px; border-color:var(--terra); opacity:0.3; }
+    @media(pointer:coarse){ #cur,#cur-ring{display:none} body{cursor:auto} }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  NAVIGATION                           ║
+       ╚═══════════════════════════════════════╝ */
+    #nav {
+      position:fixed; top:0; left:0; right:0; z-index:500;
+      height:62px;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 3.5rem;
+      background:rgba(28,28,28,0.95);
+      backdrop-filter:blur(20px) saturate(120%);
+      border-bottom:1px solid rgba(184,144,60,0.15);
+      transition:background .4s;
+    }
+    #nav.scrolled {
+      background:rgba(248,243,235,0.96);
+      border-bottom-color:var(--border-dk);
+    }
+    #nav.scrolled .nav-logo { color:var(--charcoal); }
+    #nav.scrolled .nav-logo span { color:var(--champagne); }
+    #nav.scrolled .nav-links a { color:var(--muted); }
+    #nav.scrolled .nav-links a:hover { color:var(--charcoal); }
+    #nav.scrolled .nav-cta { background:var(--charcoal); color:var(--ivory) !important; }
+
+    .nav-logo {
+      font-family:'Bodoni Moda',serif;
+      font-size:1.05rem; font-weight:500; letter-spacing:.03em;
+      color:var(--ivory);
+      transition:color .4s;
+    }
+    .nav-logo span { color:var(--champagne); font-style:italic; }
+
+    .nav-links { display:flex; gap:2.2rem; list-style:none; align-items:center; }
+    .nav-links a {
+      font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+      color:rgba(253,250,246,0.55); text-decoration:none; font-weight:400;
+      transition:color .25s; position:relative;
+    }
+    .nav-links a:hover { color:var(--champ-lt); }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-3px; left:0;
+      width:0; height:1px; background:var(--champagne);
+      transition:width .3s;
+    }
+    .nav-links a:hover::after { width:100%; }
+    .nav-cta {
+      padding:.48rem 1.3rem;
+      background:rgba(184,144,60,0.15);
+      border:1px solid rgba(184,144,60,0.4);
+      color:var(--champagne) !important;
+      font-size:.68rem !important; letter-spacing:.14em;
+      text-transform:uppercase; text-decoration:none;
+      transition:all .3s !important;
+    }
+    .nav-cta:hover {
+      background:var(--champagne) !important;
+      color:var(--charcoal) !important;
+      border-color:var(--champagne) !important;
+    }
+    .nav-cta::after { display:none !important; }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  HERO — FULL-DARK TYPOGRAPHIC POSTER  ║
+       ╚═══════════════════════════════════════╝ */
+    #hero {
+      min-height:100vh;
+      background:var(--charcoal);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    /* Atmospheric background layers */
+    .hero-bg-radial {
+      position:absolute; inset:0; pointer-events:none; z-index:0;
+      background:
+        radial-gradient(ellipse 80% 60% at 65% 50%, rgba(139,74,47,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%,  rgba(184,144,60,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 90% 10%,  rgba(184,144,60,0.07) 0%, transparent 50%);
+    }
+    /* Fine dot grid */
+    .hero-dotgrid {
+      position:absolute; inset:0; pointer-events:none; z-index:0;
+      background-image: radial-gradient(circle, rgba(184,144,60,0.12) 1px, transparent 1px);
+      background-size:36px 36px;
+      mask-image:radial-gradient(ellipse 70% 100% at 70% 50%, black 0%, transparent 75%);
+    }
+    /* Diagonal gold rule */
+    .hero-diag {
+      position:absolute; z-index:1; pointer-events:none;
+      width:1px; height:160%;
+      background:linear-gradient(to bottom, transparent 0%, rgba(184,144,60,0.2) 30%, rgba(184,144,60,0.35) 50%, rgba(184,144,60,0.2) 70%, transparent 100%);
+      top:-30%; left:58%;
+      transform:rotate(12deg);
+      transform-origin:top;
+    }
+    .hero-diag-2 {
+      position:absolute; z-index:1; pointer-events:none;
+      width:1px; height:160%;
+      background:linear-gradient(to bottom, transparent 0%, rgba(139,74,47,0.15) 40%, rgba(139,74,47,0.25) 55%, rgba(139,74,47,0.1) 70%, transparent 100%);
+      top:-30%; left:62%;
+      transform:rotate(12deg);
+      transform-origin:top;
+    }
+
+    /* ── TOP AREA ── */
+    .hero-top {
+      position:relative; z-index:3;
+      padding:7.5rem 4.5rem 0;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .hero-eyebrow {
+      display:flex; align-items:center; gap:.8rem;
+      font-size:.6rem; letter-spacing:.26em; text-transform:uppercase;
+      color:rgba(184,144,60,.7);
+    }
+    .hero-eyebrow-line { width:32px; height:1px; background:var(--champagne); opacity:.5; }
+    .hero-pulse {
+      width:6px; height:6px; border-radius:50%;
+      background:var(--champagne); position:relative;
+    }
+    .hero-pulse::after {
+      content:''; position:absolute; inset:-4px; border-radius:50%;
+      border:1px solid var(--champagne);
+      animation:pulseRing 2.5s ease-out infinite;
+    }
+    @keyframes pulseRing { 0%{transform:scale(.8);opacity:1} 100%{transform:scale(2.4);opacity:0} }
+    .hero-top-right {
+      display:flex; align-items:center; gap:1.5rem;
+    }
+    .hero-she-tag {
+      font-size:.6rem; letter-spacing:.22em; text-transform:uppercase;
+      color:rgba(253,250,246,.25); border:1px solid rgba(184,144,60,.2);
+      padding:.28rem .8rem;
+    }
+    .hero-location {
+      font-size:.6rem; letter-spacing:.18em; text-transform:uppercase;
+      color:rgba(253,250,246,.25);
+    }
+
+    /* ── MAIN NAME BLOCK ── */
+    .hero-main {
+      position:relative; z-index:3;
+      padding:0 4.5rem;
+      flex:1; display:flex; align-items:center;
+    }
+    .hero-name-wrap {
+      position:relative;
+    }
+    /* "PRIYANKA" — enormous, ivory */
+    .hn-first {
+      display:block;
+      font-family:'Bodoni Moda',serif;
+      font-size:clamp(5.5rem,11.5vw,13rem);
+      font-weight:500; letter-spacing:-.02em;
+      color:var(--ivory); line-height:.88;
+      animation:fadeSlideUp .9s cubic-bezier(.22,1,.36,1) both;
+    }
+    /* "Srivastava" — large italic champagne-terracotta */
+    .hn-last {
+      display:block;
+      font-family:'Bodoni Moda',serif;
+      font-size:clamp(5rem,10.5vw,11.8rem);
+      font-weight:500; font-style:italic;
+      letter-spacing:-.01em;
+      color:transparent;
+      -webkit-text-stroke:1px rgba(184,144,60,0.6);
+      line-height:.95;
+      animation:fadeSlideUp .9s .1s cubic-bezier(.22,1,.36,1) both;
+      position:relative;
+    }
+    /* Filled italic over stroke for gradient effect */
+    .hn-last::after {
+      content:attr(data-text);
+      position:absolute; inset:0;
+      background:linear-gradient(110deg, var(--champ-lt) 0%, var(--terra) 55%, var(--champagne) 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    @keyframes fadeSlideUp {
+      from{opacity:0;transform:translateY(40px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    /* Photo — positioned absolutely, upper-right */
+    .hero-photo-wrap {
+      position:absolute;
+      right:0; top:50%; transform:translateY(-50%);
+      z-index:2; pointer-events:none;
+    }
+    .hero-photo-frame {
+      width:220px; height:270px;
+      position:relative;
+    }
+    .hero-photo-inner {
+      width:100%; height:100%;
+      background:linear-gradient(160deg, #2A2826 0%, #1A1814 100%);
+      border:1px solid rgba(184,144,60,0.25);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+    }
+    .hero-photo-inner img { width:100%; height:100%; object-fit:cover; filter:contrast(1.05) saturate(0.9); }
+    .hero-initials {
+      font-family:'Bodoni Moda',serif;
+      font-size:4.5rem; font-style:italic; font-weight:400;
+      color:rgba(184,144,60,0.5); letter-spacing:.05em;
+    }
+    /* Corner bracket accents — all 4 corners */
+    .hero-photo-frame::before {
+      content:''; position:absolute; top:-8px; left:-8px;
+      width:22px; height:22px;
+      border-top:1px solid var(--champagne);
+      border-left:1px solid var(--champagne);
+    }
+    .hero-photo-frame::after {
+      content:''; position:absolute; bottom:-8px; right:-8px;
+      width:22px; height:22px;
+      border-bottom:1px solid var(--champagne);
+      border-right:1px solid var(--champagne);
+    }
+    .hero-photo-frame .corner-br {
+      position:absolute; top:-8px; right:-8px;
+      width:22px; height:22px;
+      border-top:1px solid rgba(184,144,60,.35);
+      border-right:1px solid rgba(184,144,60,.35);
+    }
+    .hero-photo-frame .corner-bl {
+      position:absolute; bottom:-8px; left:-8px;
+      width:22px; height:22px;
+      border-bottom:1px solid rgba(184,144,60,.35);
+      border-left:1px solid rgba(184,144,60,.35);
+    }
+    /* Current role badge on photo */
+    .hero-photo-badge {
+      position:absolute; bottom:-1px; left:-1px; right:-1px;
+      background:rgba(28,28,28,0.92);
+      border-top:1px solid rgba(184,144,60,0.25);
+      padding:.8rem 1rem;
+      backdrop-filter:blur(8px);
+    }
+    .hpb-live {
+      display:flex; align-items:center; gap:.4rem;
+      font-size:.55rem; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--champagne); margin-bottom:.25rem;
+    }
+    .hpb-dot { width:5px; height:5px; border-radius:50%; background:var(--champagne); animation:blink 2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.15} }
+    .hpb-role { font-family:'Bodoni Moda',serif; font-size:.95rem; color:var(--ivory); line-height:1.2; }
+    .hpb-co { font-size:.68rem; color:rgba(184,144,60,.7); font-weight:300; letter-spacing:.06em; }
+
+    /* ── ROLE LINE (between name and description) ── */
+    .hero-rule-row {
+      position:relative; z-index:3;
+      padding:0 4.5rem;
+      display:flex; align-items:center; gap:2rem;
+      margin-top:1.5rem;
+      animation:fadeIn .8s .3s both;
+    }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    .hero-rule { flex:1; height:1px; background:linear-gradient(90deg, rgba(184,144,60,.45), rgba(184,144,60,0)); }
+    .hero-role-badge {
+      display:flex; align-items:center; gap:.8rem;
+      padding:.4rem 1.2rem;
+      border:1px solid rgba(184,144,60,.25);
+      background:rgba(184,144,60,.06);
+    }
+    .hrb-title {
+      font-family:'Bodoni Moda',serif;
+      font-size:.88rem; font-style:italic;
+      color:rgba(253,250,246,.75);
+    }
+    .hrb-sep { width:1px; height:12px; background:rgba(184,144,60,.3); }
+    .hrb-co { font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--champagne); }
+
+    /* ── BOTTOM STRIP ── */
+    .hero-bottom {
+      position:relative; z-index:3;
+      border-top:1px solid rgba(184,144,60,0.1);
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:stretch;
+      animation:fadeIn .8s .5s both;
+    }
+    /* Description + CTAs */
+    .hero-desc-col {
+      padding:2rem 4.5rem;
+      display:flex; flex-direction:column; gap:1.8rem;
+      justify-content:center;
+      border-right:1px solid rgba(184,144,60,0.1);
+    }
+    .hero-desc {
+      font-size:.93rem; font-weight:300; line-height:1.82;
+      color:rgba(253,250,246,.5);
+      max-width:480px;
+      padding-left:1rem;
+      border-left:2px solid rgba(184,144,60,0.5);
+    }
+    .hero-ctas { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+    .cta-primary {
+      padding:.75rem 2rem; background:var(--champagne); color:var(--charcoal);
+      font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
+      text-decoration:none; font-weight:500;
+      position:relative; overflow:hidden;
+      transition:background .3s, color .3s;
+    }
+    .cta-primary::before {
+      content:''; position:absolute; inset:0;
+      background:var(--terra);
+      transform:scaleX(0); transform-origin:right;
+      transition:transform .4s cubic-bezier(.77,0,.18,1);
+    }
+    .cta-primary:hover::before { transform:scaleX(1); transform-origin:left; }
+    .cta-primary:hover { color:var(--ivory); }
+    .cta-primary span { position:relative; z-index:1; }
+    .cta-ghost {
+      padding:.75rem 2rem;
+      border:1px solid rgba(184,144,60,.3);
+      color:rgba(253,250,246,.55); font-size:.68rem;
+      letter-spacing:.16em; text-transform:uppercase;
+      text-decoration:none; font-weight:400;
+      transition:all .3s;
+    }
+    .cta-ghost:hover { border-color:var(--champagne); color:var(--champagne); }
+
+    /* Stats strip */
+    .hero-stats-col {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      border-left:1px solid rgba(184,144,60,0.1);
+    }
+    .hsc-item {
+      padding:1.5rem 2rem;
+      display:flex; flex-direction:column; justify-content:center;
+      border-right:1px solid rgba(184,144,60,0.08);
+      transition:background .3s;
+    }
+    .hsc-item:last-child { border-right:none; }
+    .hsc-item:hover { background:rgba(184,144,60,0.05); }
+    .hsc-num {
+      font-family:'Bodoni Moda',serif;
+      font-size:1.7rem; font-weight:500; color:var(--champ-lt);
+      line-height:1; margin-bottom:.22rem;
+    }
+    .hsc-label { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(176,169,159,.45); }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  MARQUEE TICKER                       ║
+       ╚═══════════════════════════════════════╝ */
+    .ticker {
+      background:var(--charcoal); padding:.75rem 0;
+      overflow:hidden; position:relative;
+      border-top:1px solid rgba(184,144,60,0.2);
+      border-bottom:1px solid rgba(184,144,60,0.2);
+    }
+    .ticker-track {
+      display:flex; gap:0; white-space:nowrap;
+      animation:ticker 30s linear infinite;
+    }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item {
+      display:inline-flex; align-items:center; gap:1.5rem;
+      padding:0 2rem; flex-shrink:0;
+    }
+    .ticker-text { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(176,169,159,0.5); }
+    .ticker-sep { width:4px; height:4px; border-radius:50%; background:var(--champagne); opacity:.4; }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  SECTION UTILITIES                    ║
+       ╚═══════════════════════════════════════╝ */
+    .sec-label {
+      display:flex; align-items:center; gap:.7rem;
+      font-size:.62rem; letter-spacing:.24em; text-transform:uppercase;
+      color:var(--champagne); margin-bottom:.8rem;
+    }
+    .sec-label::before { content:''; width:24px; height:1px; background:var(--champagne); }
+    h2.sec-title {
+      font-family:'Bodoni Moda',serif;
+      font-size:clamp(2.2rem,3.8vw,3.4rem);
+      font-weight:500; line-height:1.1; color:var(--charcoal);
+    }
+    h2.sec-title em { font-style:italic; color:var(--terra); }
+    h2.sec-title.inv { color:var(--ivory); }
+    h2.sec-title.inv em { color:var(--champ-lt); }
+    .sec-label.inv { color:var(--champ-lt); }
+    .sec-label.inv::before { background:var(--champ-lt); }
+    .sec-num {
+      font-family:'Bodoni Moda',serif;
+      font-size:.72rem; font-style:italic; color:var(--champagne);
+      letter-spacing:.06em;
+    }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  ABOUT                                ║
+       ╚═══════════════════════════════════════╝ */
+    #about {
+      background:var(--warm-white);
+      padding:8rem 5rem;
+      display:grid;
+      grid-template-columns:5fr 4fr;
+      gap:7rem;
+      align-items:start;
+      position:relative;
+    }
+    /* section number watermark */
+    #about::before {
+      content:'01';
+      position:absolute; right:4rem; top:3rem;
+      font-family:'Bodoni Moda',serif; font-size:9rem; font-style:italic;
+      color:rgba(184,144,60,0.07); font-weight:700;
+      line-height:1; pointer-events:none;
+    }
+    .about-body { position:relative; }
+    .about-intro {
+      font-size:1.12rem; font-weight:300; line-height:1.9;
+      color:var(--charcoal-3); margin-top:1.8rem;
+    }
+    .about-intro strong { color:var(--charcoal); font-weight:500; }
+    .about-pull {
+      margin:2.5rem 0;
+      padding:2rem 2.5rem;
+      background:var(--charcoal);
+      position:relative;
+    }
+    .about-pull::before {
+      content:'\201C';
+      font-family:'Bodoni Moda',serif; font-size:7rem;
+      color:var(--champagne); position:absolute;
+      top:-1.5rem; left:1.5rem; line-height:1; opacity:.4;
+    }
+    .about-pull-text {
+      font-family:'Bodoni Moda',serif;
+      font-size:1.2rem; font-style:italic; font-weight:400;
+      color:var(--ivory); line-height:1.65;
+      position:relative; z-index:1;
+    }
+    .about-pillars {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:1px; background:var(--border-dk);
+      margin-top:2.5rem;
+    }
+    .pillar {
+      background:var(--warm-white);
+      padding:1.5rem 1.4rem;
+      transition:background .3s, transform .3s;
+    }
+    .pillar:hover { background:var(--champ-pale); }
+    .pillar-icon { font-size:1.4rem; margin-bottom:.65rem; }
+    .pillar-title {
+      font-family:'Bodoni Moda',serif;
+      font-size:.98rem; color:var(--charcoal); margin-bottom:.35rem;
+    }
+    .pillar-desc { font-size:.78rem; color:var(--muted); line-height:1.6; font-weight:300; }
+
+    /* right column */
+    .about-r {}
+    .about-contact-card {
+      border:1px solid var(--border-dk);
+      overflow:hidden; margin-bottom:1.5rem;
+    }
+    .acc-header {
+      background:var(--charcoal); padding:1.2rem 1.5rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .acc-header-title {
+      font-family:'Bodoni Moda',serif;
+      font-size:1rem; color:var(--ivory); font-style:italic;
+    }
+    .acc-header-tag {
+      font-size:.6rem; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--champagne); padding:.25rem .6rem;
+      border:1px solid rgba(184,144,60,0.35);
+    }
+    .acc-body { padding:1.2rem; background:var(--warm-white); }
+    .acc-row {
+      display:flex; align-items:center; gap:.8rem;
+      padding:.7rem .5rem;
+      border-bottom:1px solid var(--border-dk);
+      text-decoration:none; transition:background .25s;
+    }
+    .acc-row:last-child { border-bottom:none; }
+    .acc-row:hover { background:var(--parchment); }
+    .acc-icon {
+      width:30px; height:30px;
+      border:1px solid var(--border-dk);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; background:var(--warm-white);
+    }
+    .acc-icon svg { width:13px; height:13px; stroke:var(--champagne); }
+    .acc-label { font-size:.62rem; color:var(--muted-lt); letter-spacing:.06em; line-height:1.1; }
+    .acc-val { font-size:.82rem; color:var(--charcoal); font-weight:400; }
+
+    /* Skills tags */
+    .about-tags { display:flex; flex-wrap:wrap; gap:.5rem; }
+    .atag {
+      padding:.35rem .9rem;
+      background:transparent;
+      border:1px solid var(--border-dk);
+      font-size:.72rem; color:var(--muted);
+      transition:all .3s; letter-spacing:.04em;
+    }
+    .atag:hover { background:var(--charcoal); color:var(--ivory); border-color:var(--charcoal); }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  EXPERIENCE                           ║
+       ╚═══════════════════════════════════════╝ */
+    #experience {
+      background:var(--charcoal);
+      padding:8rem 5rem;
+      position:relative; overflow:hidden;
+    }
+    #experience::before {
+      content:'02';
+      position:absolute; right:4rem; bottom:2rem;
+      font-family:'Bodoni Moda',serif; font-size:9rem; font-style:italic;
+      color:rgba(184,144,60,0.05); font-weight:700; line-height:1;
+      pointer-events:none;
+    }
+    .exp-container {
+      display:grid;
+      grid-template-columns:300px 1fr;
+      gap:0; margin-top:4.5rem;
+      border:1px solid rgba(184,144,60,0.15);
+    }
+    .exp-menu {
+      border-right:1px solid rgba(184,144,60,0.12);
+    }
+    .exp-menu-item {
+      padding:1.5rem 1.8rem;
+      border-bottom:1px solid rgba(184,144,60,0.08);
+      cursor:pointer;
+      position:relative; transition:background .3s;
+    }
+    .exp-menu-item:hover,
+    .exp-menu-item.on { background:rgba(184,144,60,0.06); }
+    .exp-menu-item.on::after {
+      content:''; position:absolute;
+      right:0; top:0; bottom:0; width:2px;
+      background:var(--champagne);
+    }
+    .exp-mi-num { font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(184,144,60,.4); margin-bottom:.4rem; }
+    .exp-mi-co {
+      font-family:'Bodoni Moda',serif;
+      font-size:.98rem; color:var(--ivory); margin-bottom:.2rem;
+      transition:color .3s;
+    }
+    .exp-menu-item.on .exp-mi-co { color:var(--champ-lt); }
+    .exp-mi-role { font-size:.73rem; color:var(--muted); font-weight:300; }
+    .exp-mi-date { font-size:.65rem; color:rgba(138,130,120,.5); margin-top:.15rem; }
+
+    .exp-detail { padding:2.5rem 3.2rem; }
+    .exp-pane { display:none; animation:fadeUp .35s ease; }
+    .exp-pane.on { display:block; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+    .exp-now-badge {
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-size:.6rem; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--champagne);
+      border:1px solid rgba(184,144,60,0.3);
+      padding:.2rem .7rem; margin-bottom:1rem;
+    }
+    .badge-dot { width:5px; height:5px; border-radius:50%; background:var(--champagne); animation:blink 2s infinite; }
+    .exp-role-name {
+      font-family:'Bodoni Moda',serif;
+      font-size:1.8rem; font-weight:500; color:var(--ivory);
+      margin-bottom:.3rem; line-height:1.15;
+    }
+    .exp-co-name { font-size:.82rem; color:var(--champagne); letter-spacing:.1em; margin-bottom:.2rem; }
+    .exp-meta {
+      font-size:.72rem; color:var(--muted);
+      padding-bottom:1.5rem;
+      border-bottom:1px solid rgba(184,144,60,0.1);
+      margin-bottom:1.5rem;
+    }
+    .exp-meta span { margin-right:1.2rem; }
+    .exp-ul { list-style:none; }
+    .exp-ul li {
+      display:grid; grid-template-columns:1.2rem 1fr;
+      gap:.6rem; align-items:start;
+      padding:.6rem 0;
+      border-bottom:1px solid rgba(255,255,255,0.04);
+      font-size:.87rem; color:rgba(253,250,246,.65);
+      line-height:1.72; font-weight:300;
+    }
+    .exp-ul li::before {
+      content:''; width:4px; height:4px; border-radius:50%;
+      background:var(--champagne); margin-top:.65rem;
+    }
+    .exp-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.5rem; }
+    .etag {
+      padding:.28rem .8rem;
+      background:rgba(184,144,60,0.08);
+      border:1px solid rgba(184,144,60,0.2);
+      font-size:.67rem; color:rgba(184,144,60,.8);
+      letter-spacing:.06em;
+    }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  SKILLS                               ║
+       ╚═══════════════════════════════════════╝ */
+    #skills {
+      background:var(--ivory);
+      padding:8rem 5rem;
+      position:relative;
+    }
+    #skills::before {
+      content:'03';
+      position:absolute; right:4rem; top:3rem;
+      font-family:'Bodoni Moda',serif; font-size:9rem; font-style:italic;
+      color:rgba(184,144,60,0.07); font-weight:700; line-height:1; pointer-events:none;
+    }
+    .skills-layout { display:grid; grid-template-columns:1fr 1fr; gap:6rem; margin-top:4.5rem; }
+
+    /* Left: proficiency bars */
+    .prof-group { margin-bottom:2.5rem; }
+    .prof-group-label {
+      font-size:.62rem; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--champagne); margin-bottom:1.2rem;
+      padding-bottom:.5rem; border-bottom:1px solid var(--rule);
+    }
+    .prof-row { margin-bottom:1.2rem; }
+    .prof-row-head { display:flex; justify-content:space-between; margin-bottom:.5rem; }
+    .prof-row-name { font-size:.85rem; color:var(--charcoal-3); font-weight:400; }
+    .prof-row-pct { font-size:.75rem; color:var(--champagne); font-weight:300; }
+    .prof-track { height:1px; background:var(--parchment); position:relative; }
+    .prof-fill {
+      position:absolute; top:0; left:0; height:100%;
+      background:linear-gradient(90deg,var(--terra),var(--champagne));
+      transform:scaleX(0); transform-origin:left;
+      transition:transform 1.6s cubic-bezier(.22,1,.36,1);
+    }
+    .prof-fill.on { transform:scaleX(1); }
+
+    /* Right: skill cards */
+    .skill-cards {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:1px; background:var(--border-dk);
+    }
+    .sk-card {
+      background:var(--warm-white);
+      padding:1.5rem 1.4rem;
+      transition:background .3s;
+    }
+    .sk-card:hover { background:var(--champ-pale); }
+    .sk-card-icon { font-size:1.3rem; margin-bottom:.8rem; }
+    .sk-card-title {
+      font-family:'Bodoni Moda',serif;
+      font-size:.95rem; color:var(--charcoal); margin-bottom:.6rem;
+    }
+    .sk-list { list-style:none; }
+    .sk-list li {
+      font-size:.75rem; color:var(--muted);
+      padding:.28rem 0; line-height:1.5; font-weight:300;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+      display:flex; align-items:center; gap:.4rem;
+    }
+    .sk-list li::before { content:'–'; color:var(--champagne); flex-shrink:0; }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  EDUCATION                            ║
+       ╚═══════════════════════════════════════╝ */
+    #education {
+      background:var(--parchment);
+      padding:8rem 5rem;
+      position:relative;
+    }
+    #education::before {
+      content:'04';
+      position:absolute; right:4rem; bottom:2rem;
+      font-family:'Bodoni Moda',serif; font-size:9rem; font-style:italic;
+      color:rgba(184,144,60,0.12); font-weight:700; line-height:1; pointer-events:none;
+    }
+    .edu-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:2.5rem; margin-top:4.5rem;
+    }
+    .edu-card {
+      background:var(--warm-white);
+      border:1px solid var(--border-dk);
+      overflow:hidden;
+      transition:transform .35s, box-shadow .35s;
+    }
+    .edu-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(28,28,28,0.1); }
+    .edu-card-top {
+      background:var(--charcoal);
+      padding:2rem 2.2rem;
+      position:relative; overflow:hidden;
+    }
+    .edu-card-top::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,var(--terra),var(--champagne));
+    }
+    .edu-card-top-num {
+      font-family:'Bodoni Moda',serif;
+      font-size:4.5rem; font-style:italic; font-weight:500;
+      color:rgba(184,144,60,0.12); position:absolute;
+      right:1.5rem; bottom:-1rem; line-height:1;
+    }
+    .edu-year { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--champagne); margin-bottom:.5rem; }
+    .edu-degree { font-family:'Bodoni Moda',serif; font-size:1.3rem; color:var(--ivory); margin-bottom:.2rem; line-height:1.2; }
+    .edu-inst { font-size:.78rem; color:rgba(253,250,246,0.55); font-weight:300; }
+    .edu-card-body { padding:1.5rem 2.2rem; }
+    .edu-desc { font-size:.82rem; color:var(--charcoal-3); line-height:1.75; font-weight:300; }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  AWARDS                               ║
+       ╚═══════════════════════════════════════╝ */
+    #awards {
+      background:var(--warm-white);
+      padding:8rem 5rem;
+      position:relative;
+    }
+    #awards::before {
+      content:'05';
+      position:absolute; right:4rem; top:3rem;
+      font-family:'Bodoni Moda',serif; font-size:9rem; font-style:italic;
+      color:rgba(184,144,60,0.07); font-weight:700; line-height:1; pointer-events:none;
+    }
+    .awards-strip {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1.5rem; margin-top:4.5rem;
+    }
+    .award {
+      padding:2.2rem 2rem;
+      border:1px solid var(--border-dk);
+      position:relative; overflow:hidden;
+      transition:border-color .35s, transform .35s, box-shadow .35s;
+    }
+    .award:hover {
+      border-color:var(--champagne);
+      transform:translateY(-5px);
+      box-shadow:0 20px 50px rgba(184,144,60,0.1);
+    }
+    .award::after {
+      content:''; position:absolute;
+      top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,var(--terra),var(--champagne));
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .4s ease;
+    }
+    .award:hover::after { transform:scaleX(1); }
+    .award-ordinal {
+      font-family:'Bodoni Moda',serif;
+      font-size:4rem; font-style:italic; font-weight:700;
+      color:rgba(184,144,60,0.12); line-height:1; margin-bottom:.8rem;
+    }
+    .award-icon { font-size:1.4rem; margin-bottom:.8rem; }
+    .award-title {
+      font-family:'Bodoni Moda',serif;
+      font-size:1.05rem; color:var(--charcoal); margin-bottom:.6rem; font-weight:500;
+    }
+    .award-body { font-size:.8rem; color:var(--muted); line-height:1.72; font-weight:300; }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  CONTACT                              ║
+       ╚═══════════════════════════════════════╝ */
+    #contact {
+      background:var(--charcoal);
+      padding:9rem 5rem;
+      position:relative; overflow:hidden;
+    }
+    .contact-bg-text {
+      position:absolute; bottom:-3rem; right:3rem;
+      font-family:'Bodoni Moda',serif;
+      font-size:16rem; font-style:italic; font-weight:700;
+      color:rgba(184,144,60,0.04); line-height:1; pointer-events:none;
+      white-space:nowrap; user-select:none;
+    }
+    .contact-inner {
+      max-width:700px; position:relative; z-index:1;
+    }
+    .contact-intro {
+      font-size:1rem; font-weight:300; line-height:1.85;
+      color:rgba(253,250,246,.55); margin-top:1.5rem; margin-bottom:3.5rem;
+      max-width:500px;
+    }
+    .contact-grid-links {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:1px; background:rgba(184,144,60,.1);
+      margin-bottom:2.5rem;
+      max-width:600px;
+    }
+    .cgl-item {
+      display:flex; align-items:center; gap:1rem;
+      padding:1.2rem 1.5rem;
+      background:rgba(28,28,28,.6);
+      text-decoration:none;
+      transition:background .3s;
+    }
+    .cgl-item:hover { background:rgba(184,144,60,0.08); }
+    .cgl-icon-wrap {
+      width:38px; height:38px;
+      border:1px solid rgba(184,144,60,0.25);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .cgl-icon-wrap svg { width:15px; height:15px; stroke:var(--champagne); fill:none; stroke-width:1.5; }
+    .cgl-label { font-size:.62rem; color:var(--muted); letter-spacing:.08em; margin-bottom:.15rem; }
+    .cgl-val { font-size:.85rem; color:var(--ivory); font-weight:300; }
+    .contact-ctas { display:flex; gap:1rem; }
+    .ccta {
+      padding:.85rem 2.2rem;
+      font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+      text-decoration:none; font-weight:400; display:inline-block;
+      transition:all .3s;
+    }
+    .ccta-primary { background:var(--champagne); color:var(--charcoal); }
+    .ccta-primary:hover { background:var(--champ-lt); }
+    .ccta-outline { border:1px solid rgba(184,144,60,0.35); color:rgba(253,250,246,.6); }
+    .ccta-outline:hover { border-color:var(--champagne); color:var(--champagne); }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  FOOTER                               ║
+       ╚═══════════════════════════════════════╝ */
+    footer {
+      background:#111111;
+      padding:1.8rem 5rem;
+      display:flex; align-items:center; justify-content:space-between;
+      border-top:1px solid rgba(184,144,60,0.12);
+    }
+    .footer-logo { font-family:'Bodoni Moda',serif; font-size:.95rem; color:rgba(184,144,60,.5); font-style:italic; }
+    footer p { font-size:.68rem; color:rgba(138,130,120,.35); letter-spacing:.06em; }
+
+    /* ╔═══════════════════════════════════════╗
+       ║  SCROLL REVEALS                       ║
+       ╚═══════════════════════════════════════╝ */
+    .r { opacity:0; transform:translateY(28px); transition:opacity .75s ease,transform .75s ease; }
+    .r.go { opacity:1; transform:none; }
+    .r.d1{transition-delay:.1s} .r.d2{transition-delay:.2s} .r.d3{transition-delay:.3s}
+
+    /* ╔═══════════════════════════════════════╗
+       ║  RESPONSIVE                           ║
+       ╚═══════════════════════════════════════╝ */
+    @media(max-width:1024px){
+      #nav{padding:0 2rem}
+      .nav-links{display:none}
+      #hero{min-height:100svh}
+      .hero-top{padding:6rem 2rem 0;flex-wrap:wrap;gap:.8rem}
+      .hero-main{padding:0 2rem;flex-wrap:wrap}
+      .hero-photo-wrap{position:static;transform:none;margin-top:1.5rem}
+      .hero-photo-frame{width:160px;height:200px}
+      .hn-first{font-size:clamp(3.5rem,12vw,7rem)}
+      .hn-last{font-size:clamp(3.2rem,11vw,6.5rem)}
+      .hero-rule-row{padding:0 2rem}
+      .hero-bottom{grid-template-columns:1fr}
+      .hero-desc-col{padding:1.8rem 2rem;border-right:none;border-bottom:1px solid rgba(184,144,60,.1)}
+      .hero-stats-col{grid-template-columns:repeat(4,1fr);border-left:none}
+      .hsc-item{padding:1.2rem}
+      #about{padding:6rem 2.5rem;grid-template-columns:1fr;gap:3.5rem}
+      #experience{padding:6rem 2.5rem}
+      .exp-container{grid-template-columns:1fr}
+      .exp-menu{border-right:none;border-bottom:1px solid rgba(184,144,60,.12);display:flex;overflow-x:auto}
+      .exp-menu-item{min-width:160px;border-bottom:none;border-right:1px solid rgba(184,144,60,.08)}
+      .exp-menu-item.on::after{top:auto;bottom:0;left:0;right:0;width:auto;height:2px}
+      .exp-detail{padding:2rem 1.5rem}
+      #skills{padding:6rem 2.5rem}
+      .skills-layout{grid-template-columns:1fr;gap:3.5rem}
+      .skill-cards{grid-template-columns:1fr}
+      #education{padding:6rem 2.5rem}
+      .edu-grid{grid-template-columns:1fr}
+      #awards{padding:6rem 2.5rem}
+      .awards-strip{grid-template-columns:1fr}
+      #contact{padding:6rem 2.5rem}
+      .contact-grid-links{grid-template-columns:1fr}
+      footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem 2rem}
+    }
+  </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="nav">
+  <div class="nav-logo">Priyanka <span>Srivastava</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <!-- Background layers -->
+  <div class="hero-bg-radial"></div>
+  <div class="hero-dotgrid"></div>
+  <div class="hero-diag"></div>
+  <div class="hero-diag-2"></div>
+
+  <!-- Top bar -->
+  <div class="hero-top">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <div class="hero-pulse"></div>
+      Global HR Professional · Open to Opportunities
+    </div>
+    <div class="hero-top-right">
+      <span class="hero-she-tag">She / Her</span>
+      <span class="hero-location">India</span>
+    </div>
+  </div>
+
+  <!-- Main name block -->
+  <div class="hero-main">
+    <h1 class="hero-name-wrap">
+      <span class="hn-first">Priyanka</span>
+      <span class="hn-last" data-text="Srivastava">Srivastava</span>
+    </h1>
+
+    <!-- Photo: positioned absolutely right of name -->
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-inner">
+          <!-- ADD YOUR PHOTO: upload priyanka.jpg to your GitHub repo, then change this to: <img src="priyanka.jpg" alt="Priyanka Srivastava"> -->
+        <span class="hero-initials">PS</span>
+        </div>
+        <div class="corner-br"></div>
+        <div class="corner-bl"></div>
+        <div class="hero-photo-badge">
+          <div class="hpb-live"><span class="hpb-dot"></span> Currently Employed</div>
+          <div class="hpb-role">Senior HRPA</div>
+          <div class="hpb-co">Accenture · India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Role line -->
+  <div class="hero-rule-row">
+    <div class="hero-role-badge">
+      <span class="hrb-title">Senior HRPA</span>
+      <span class="hrb-sep"></span>
+      <span class="hrb-co">Accenture</span>
+    </div>
+    <div class="hero-rule"></div>
+  </div>
+
+  <!-- Bottom: description + stats -->
+  <div class="hero-bottom">
+    <div class="hero-desc-col">
+      <p class="hero-desc">A Global HR Professional with 6+ years aligning human resources strategy with business objectives of multinational organizations — driven by analytics, empathy, and Gen AI innovation.</p>
+      <div class="hero-ctas">
+        <a href="#experience" class="cta-primary"><span>View Experience</span></a>
+        <a href="#contact" class="cta-ghost">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-stats-col">
+      <div class="hsc-item">
+        <div class="hsc-num">6<sup style="font-size:.9rem;vertical-align:super">+</sup></div>
+        <div class="hsc-label">Years Exp.</div>
+      </div>
+      <div class="hsc-item">
+        <div class="hsc-num">4</div>
+        <div class="hsc-label">Companies</div>
+      </div>
+      <div class="hsc-item">
+        <div class="hsc-num">3</div>
+        <div class="hsc-label">Awards</div>
+      </div>
+      <div class="hsc-item">
+        <div class="hsc-num">500<sup style="font-size:.75rem;vertical-align:super">+</sup></div>
+        <div class="hsc-label">Network</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TICKER ═══════════ -->
+<div class="ticker">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-item"><span class="ticker-text">HR Strategy</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Workforce Planning</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Employee Relations</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Gen AI Innovation</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Talent Management</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Succession Planning</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">HR Analytics</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Cross-Cultural Training</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Organizational Psychology</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Change Management</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Performance Management</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">People Strategy</span><span class="ticker-sep"></span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span class="ticker-text">HR Strategy</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Workforce Planning</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Employee Relations</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Gen AI Innovation</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Talent Management</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Succession Planning</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">HR Analytics</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Cross-Cultural Training</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Organizational Psychology</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Change Management</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">Performance Management</span><span class="ticker-sep"></span></div>
+    <div class="ticker-item"><span class="ticker-text">People Strategy</span><span class="ticker-sep"></span></div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about">
+  <div class="about-body r">
+    <div class="sec-label">About</div>
+    <h2 class="sec-title">The Person<br>Behind the <em>Strategy</em></h2>
+    <p class="about-intro">
+      I am a <strong>Senior HR Professional Associate at Accenture</strong>, where I align people strategy with business objectives and support workforce planning across a global organization. With experience spanning <strong>Atos India, eClerx, and Tech Mahindra</strong>, I bring a rich multi-industry perspective to HR — from complex employee relations and change management to building Gen AI-powered tools that modernize HR operations.
+    </p>
+    <div class="about-pull">
+      <p class="about-pull-text">"The best HR isn't about policies — it's about creating environments where people do the best work of their lives."</p>
+    </div>
+    <p class="about-intro" style="font-size:.94rem; margin-top:0; margin-bottom:2rem;">
+      My <strong>Masters in Psychology</strong> from IGNOU gives me a unique behavioural science lens that I apply to every people challenge — from designing more empathetic performance frameworks to decoding attrition signals before they become problems.
+    </p>
+    <div class="about-pillars">
+      <div class="pillar"><div class="pillar-icon">🎯</div><div class="pillar-title">Strategic Partner</div><div class="pillar-desc">Trusted advisor to business leaders, translating people insights into measurable outcomes.</div></div>
+      <div class="pillar"><div class="pillar-icon">📊</div><div class="pillar-title">Analytics-Led</div><div class="pillar-desc">Data-driven attrition dashboards and HR intelligence that shape proactive decisions.</div></div>
+      <div class="pillar"><div class="pillar-icon">🌏</div><div class="pillar-title">Global Fluency</div><div class="pillar-desc">Cross-cultural agility across diverse multinational environments and geographies.</div></div>
+      <div class="pillar"><div class="pillar-icon">🤖</div><div class="pillar-title">AI Innovator</div><div class="pillar-desc">Award-winning Gen AI prototypes that transform traditional HR processes.</div></div>
+    </div>
+  </div>
+
+  <div class="about-r r d2">
+    <div class="about-contact-card">
+      <div class="acc-header">
+        <span class="acc-header-title">Get in Touch</span>
+        <span class="acc-header-tag">Open to Connect</span>
+      </div>
+      <div class="acc-body">
+        <a href="https://www.linkedin.com/in/priyanka-srivastava-she-her-029a6b172" target="_blank" class="acc-row">
+          <div class="acc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><div class="acc-label">LinkedIn</div><div class="acc-val">Connect · 500+ Connections</div></div>
+        </a>
+      </div>
+    </div>
+    <div style="margin-bottom:1rem;">
+      <div class="sec-label" style="margin-bottom:.8rem;font-size:.6rem;">Key Capabilities</div>
+      <div class="about-tags">
+        <span class="atag">Workforce Planning</span>
+        <span class="atag">Succession</span>
+        <span class="atag">Attrition Analysis</span>
+        <span class="atag">Change Management</span>
+        <span class="atag">ER Management</span>
+        <span class="atag">Gen AI for HR</span>
+        <span class="atag">Cross-Cultural Training</span>
+        <span class="atag">Talent Engagement</span>
+        <span class="atag">Campus Hiring</span>
+        <span class="atag">HRIS</span>
+        <span class="atag">Org Psychology</span>
+        <span class="atag">Policy Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EXPERIENCE ═══════════ -->
+<section id="experience">
+  <div class="sec-label inv r">Experience</div>
+  <h2 class="sec-title inv r d1">Career <em>Journey</em></h2>
+
+  <div class="exp-container r d1">
+    <div class="exp-menu">
+      <div class="exp-menu-item on" data-pane="p-accenture">
+        <div class="exp-mi-num">01 / Current</div>
+        <div class="exp-mi-co">Accenture</div>
+        <div class="exp-mi-role">Senior HRPA</div>
+        <div class="exp-mi-date">2024 – Present</div>
+      </div>
+      <div class="exp-menu-item" data-pane="p-atos">
+        <div class="exp-mi-num">02</div>
+        <div class="exp-mi-co">Atos India Ltd</div>
+        <div class="exp-mi-role">Associate Specialist HR</div>
+        <div class="exp-mi-date">Mar 2020 – 2024</div>
+      </div>
+      <div class="exp-menu-item" data-pane="p-eclerx">
+        <div class="exp-mi-num">03</div>
+        <div class="exp-mi-co">eClerx Services</div>
+        <div class="exp-mi-role">Intern HRBP</div>
+        <div class="exp-mi-date">Mar – Jun 2019</div>
+      </div>
+      <div class="exp-menu-item" data-pane="p-tm">
+        <div class="exp-mi-num">04</div>
+        <div class="exp-mi-co">Tech Mahindra</div>
+        <div class="exp-mi-role">Senior Quality Analyst</div>
+        <div class="exp-mi-date">Jun 2016 – Aug 2018</div>
+      </div>
+    </div>
+
+    <div class="exp-detail">
+      <!-- ACCENTURE -->
+      <div class="exp-pane on" id="p-accenture">
+        <div class="exp-now-badge"><span class="badge-dot"></span> Current Role · Present</div>
+        <div class="exp-role-name">Senior Human Resources<br>Professional Associate</div>
+        <div class="exp-co-name">ACCENTURE · India</div>
+        <div class="exp-meta"><span>📅 2024 – Present</span><span>📍 India</span><span>💼 Full-time</span></div>
+        <ul class="exp-ul">
+          <li>Align HR strategies with business objectives, supporting workforce planning and human resource operations at scale across Accenture's global structure.</li>
+          <li>Manage end-to-end employee lifecycle — from onboarding and engagement programs to role transitions — ensuring a seamless, positive experience at every stage.</li>
+          <li>Act as a strategic HR advisor to business leaders, providing data-driven people insights, talent engagement frameworks, and actionable recommendations.</li>
+          <li>Oversee HR data management and people analytics reporting, ensuring accuracy and transparency to empower leadership decision-making.</li>
+          <li>Lead employee relations management with consistency and fairness, ensuring compliance with HR policy and organizational values across all business units.</li>
+          <li>Drive workforce planning initiatives — identifying capability gaps and collaborating with leaders on talent development and succession strategies.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">HR Strategy</span><span class="etag">Workforce Planning</span><span class="etag">Employee Lifecycle</span><span class="etag">People Analytics</span><span class="etag">Talent Engagement</span><span class="etag">HR Compliance</span>
+        </div>
+      </div>
+
+      <!-- ATOS -->
+      <div class="exp-pane" id="p-atos">
+        <div class="exp-role-name">Associate Specialist<br>Human Resources</div>
+        <div class="exp-co-name">ATOS INDIA LTD · India</div>
+        <div class="exp-meta"><span>📅 Mar 2020 – 2024</span><span>📍 India</span><span>💼 Full-time</span></div>
+        <ul class="exp-ul">
+          <li>Partnered with global HR colleagues to share best practices, align on cross-regional initiatives, and leverage multinational synergies at scale.</li>
+          <li>Served as a trusted advisor on employee relations, ensuring policy consistency, fairness, and organizational integrity across management and employees.</li>
+          <li>Supported senior leaders through major change initiatives — restructuring, carveouts, and cultural integration — with structured people-first frameworks.</li>
+          <li>Leveraged HR analytics for program assessment, trend identification, and data-driven decision-making presented to senior leadership.</li>
+          <li>Developed an <strong style="color:var(--champ-lt)">award-winning Gen AI sentiment analysis prototype</strong> to enhance the employee resignation process — recognized with a Spot Award.</li>
+          <li>Designed and maintained HR Attrition dashboards providing turnover, engagement, and workforce demographic insights to the executive team.</li>
+          <li>Led global talent management initiatives: Cross-Cultural Training, Performance Management systems, and Engagement strategy rollout.</li>
+          <li>Collaborated on talent needs assessments, succession planning, career conversations, and people reviews for development and retention outcomes.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Employee Relations</span><span class="etag">Gen AI Prototyping</span><span class="etag">Attrition Dashboards</span><span class="etag">Succession Planning</span><span class="etag">Cross-Cultural Training</span><span class="etag">Change Management</span>
+        </div>
+      </div>
+
+      <!-- ECLERX -->
+      <div class="exp-pane" id="p-eclerx">
+        <div class="exp-role-name">Intern HRBP</div>
+        <div class="exp-co-name">ECLERX SERVICES LTD · India</div>
+        <div class="exp-meta"><span>📅 Mar 2019 – Jun 2019</span><span>📍 India</span><span>💼 Internship</span></div>
+        <ul class="exp-ul">
+          <li>Developed HR initiatives and engagement dashboards as an HRBP intern, directly contributing to boosted employee engagement across the organization.</li>
+          <li>Supported the build-out of data-driven HR strategies through analytics frameworks and reporting infrastructure.</li>
+          <li>Enhanced workplace positivity through the design and rollout of innovative, people-focused engagement solutions.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">HRBP</span><span class="etag">Dashboards</span><span class="etag">Employee Engagement</span><span class="etag">HR Analytics</span>
+        </div>
+      </div>
+
+      <!-- TECH MAHINDRA -->
+      <div class="exp-pane" id="p-tm">
+        <div class="exp-role-name">Senior Quality Analyst</div>
+        <div class="exp-co-name">TECH MAHINDRA · India</div>
+        <div class="exp-meta"><span>📅 Jun 2016 – Aug 2018</span><span>📍 India</span><span>💼 Full-time</span></div>
+        <ul class="exp-ul">
+          <li>Conducted thorough quality assessments aligned with HR standards and compliance parameters across enterprise-scale operations.</li>
+          <li>Addressed and resolved complex stakeholder escalations with professionalism and efficiency, maintaining high satisfaction benchmarks.</li>
+          <li>Reviewed employee relations cases and escalated critical issues for Zero Tolerance (ZT) policy resolution.</li>
+          <li>Led and managed teams to improve overall performance, productivity, and quality benchmarks across the business unit.</li>
+          <li>Implemented innovative strategies to enhance HR processes and increase organizational productivity and compliance.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Quality Assurance</span><span class="etag">Compliance</span><span class="etag">Team Leadership</span><span class="etag">Employee Relations</span><span class="etag">Stakeholder Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section id="skills">
+  <div class="sec-label r">Competencies</div>
+  <h2 class="sec-title r d1">Skills &amp; <em>Expertise</em></h2>
+  <div class="skills-layout">
+    <div class="r d1">
+      <div class="prof-group">
+        <div class="prof-group-label">Core HR Competencies</div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">HR Business Partnering</span><span class="prof-row-pct">95%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.95"></div></div></div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">Employee Relations Management</span><span class="prof-row-pct">92%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.92"></div></div></div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">Talent &amp; Succession Planning</span><span class="prof-row-pct">90%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.90"></div></div></div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">Change &amp; Transition Management</span><span class="prof-row-pct">85%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.85"></div></div></div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">Performance Management</span><span class="prof-row-pct">88%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.88"></div></div></div>
+      </div>
+      <div class="prof-group">
+        <div class="prof-group-label">Analytics &amp; Technology</div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">HR Analytics &amp; Dashboards</span><span class="prof-row-pct">88%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.88"></div></div></div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">Gen AI Tools for HR</span><span class="prof-row-pct">82%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.82"></div></div></div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">Cross-Cultural Training Design</span><span class="prof-row-pct">87%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.87"></div></div></div>
+        <div class="prof-row"><div class="prof-row-head"><span class="prof-row-name">Organizational Psychology</span><span class="prof-row-pct">84%</span></div><div class="prof-track"><div class="prof-fill" data-w="0.84"></div></div></div>
+      </div>
+    </div>
+    <div class="r d2">
+      <div class="skill-cards">
+        <div class="sk-card"><div class="sk-card-icon">🎯</div><div class="sk-card-title">Strategic HR</div><ul class="sk-list"><li>Global HR strategy</li><li>Workforce planning</li><li>People analytics</li><li>Succession planning</li><li>Career frameworks</li></ul></div>
+        <div class="sk-card"><div class="sk-card-icon">🤝</div><div class="sk-card-title">Employee Experience</div><ul class="sk-list"><li>ER management</li><li>Policy &amp; compliance</li><li>Cultural integration</li><li>Engagement design</li><li>Lifecycle management</li></ul></div>
+        <div class="sk-card"><div class="sk-card-icon">📊</div><div class="sk-card-title">Data &amp; Innovation</div><ul class="sk-list"><li>Attrition dashboards</li><li>Gen AI prototyping</li><li>Sentiment analysis</li><li>HRIS platforms</li><li>HR reporting</li></ul></div>
+        <div class="sk-card"><div class="sk-card-icon">🧠</div><div class="sk-card-title">Behavioural Science</div><ul class="sk-list"><li>Org psychology</li><li>Psychometric insight</li><li>Behavioural HR design</li><li>Conflict resolution</li><li>Motivational analysis</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EDUCATION ═══════════ -->
+<section id="education">
+  <div class="sec-label r">Academic Background</div>
+  <h2 class="sec-title r d1">Education &amp; <em>Qualifications</em></h2>
+  <div class="edu-grid r d1">
+    <div class="edu-card">
+      <div class="edu-card-top">
+        <div class="edu-card-top-num">I</div>
+        <div class="edu-year">Jun 2020 – Jun 2023</div>
+        <div class="edu-degree">Masters in<br>Psychology</div>
+        <div class="edu-inst">Indira Gandhi National Open University · IGNOU</div>
+      </div>
+      <div class="edu-card-body">
+        <p class="edu-desc">Advanced study of human behaviour, organizational psychology, and psychometric frameworks. This foundation enriches every aspect of my HR practice — enabling more empathetic, evidence-based people strategies and deeper organizational interventions.</p>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-card-top">
+        <div class="edu-card-top-num">II</div>
+        <div class="edu-year">Jun 2018 – Mar 2020</div>
+        <div class="edu-degree">PGDM — Human<br>Resources</div>
+        <div class="edu-inst">International School of Business &amp; Media</div>
+      </div>
+      <div class="edu-card-body">
+        <p class="edu-desc">Post-Graduate Diploma in Management with HR specialisation — covering strategic HRM, talent acquisition, compensation design, labour law, organizational behaviour, and the application of data to people management at scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AWARDS ═══════════ -->
+<section id="awards">
+  <div class="sec-label r">Recognition</div>
+  <h2 class="sec-title r d1">Awards &amp; <em>Achievements</em></h2>
+  <div class="awards-strip">
+    <div class="award r">
+      <div class="award-ordinal">I</div>
+      <div class="award-icon">🏆</div>
+      <div class="award-title">Spot Award — Gen AI Innovation</div>
+      <p class="award-body">Recognized at Atos for developing an award-winning sentiment analysis prototype using Gen AI tools — modernizing the employee resignation process and winning an internal Gen AI HR competition.</p>
+    </div>
+    <div class="award r d1">
+      <div class="award-ordinal">II</div>
+      <div class="award-icon">🌍</div>
+      <div class="award-title">Cross-Cultural Training Lead</div>
+      <p class="award-body">Led the organization's flagship Cross-Cultural Training initiative at Atos — fostering a more inclusive, collaborative, and continuously learning culture within Leadership Development programs across global teams.</p>
+    </div>
+    <div class="award r d2">
+      <div class="award-ordinal">III</div>
+      <div class="award-icon">⭐</div>
+      <div class="award-title">CDO Spot Award — Campus Hiring</div>
+      <p class="award-body">Acknowledged by the Chief Digital Officer for substantial and impactful contributions to the Campus Hiring process — delivering exceptional recruitment outcomes and demonstrating leadership well beyond the scope of the role.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact">
+  <div class="contact-bg-text">Connect</div>
+  <div class="contact-inner">
+    <div class="sec-label inv r">Let's Connect</div>
+    <h2 class="sec-title inv r d1">Open to New<br><em>Conversations</em></h2>
+    <p class="contact-intro r d2">Whether you're looking for a strategic HR partner, want to explore collaboration, or simply want to connect — I'd love to hear from you.</p>
+    <div class="contact-grid-links r d2">
+      <a href="https://www.linkedin.com/in/priyanka-srivastava-she-her-029a6b172" target="_blank" class="cgl-item">
+        <div class="cgl-icon-wrap"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div><div class="cgl-label">LinkedIn Profile</div><div class="cgl-val">Connect · 500+ Connections</div></div>
+      </a>
+      <div class="cgl-item" style="cursor:default;">
+        <div class="cgl-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="cgl-label">Location</div><div class="cgl-val">India</div></div>
+      </div>
+    </div>
+    <div class="contact-ctas r d3">
+      <a href="https://www.linkedin.com/in/priyanka-srivastava-she-her-029a6b172" target="_blank" class="ccta ccta-primary">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <span class="footer-logo">Priyanka Srivastava</span>
+  <p>Senior HRPA · Accenture · India</p>
+  <p>© 2025 · All rights reserved</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Custom Cursor ── */
+  const cur=document.getElementById('cur'), cr=document.getElementById('cur-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,.exp-menu-item,.pillar,.sk-card,.award,.edu-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+  });
+
+  /* ── Experience tabs ── */
+  document.querySelectorAll('.exp-menu-item').forEach(item=>{
+    item.addEventListener('click',()=>{
+      document.querySelectorAll('.exp-menu-item').forEach(i=>i.classList.remove('on'));
+      document.querySelectorAll('.exp-pane').forEach(p=>p.classList.remove('on'));
+      item.classList.add('on');
+      document.getElementById(item.dataset.pane).classList.add('on');
+    });
+  });
+
+  /* ── Scroll Reveals ── */
+  const ro=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('go');ro.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+
+  /* ── Scroll-aware nav ── */
+  const navEl=document.getElementById('nav');
+  function updateNav(){
+    if(window.scrollY>80) navEl.classList.add('scrolled');
+    else navEl.classList.remove('scrolled');
+    let activeSec='';
+    document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-110)activeSec=s.id;});
+    document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a=>a.style.color=a.getAttribute('href')==='#'+activeSec?'var(--champagne)':'');
+  }
+  window.addEventListener('scroll',updateNav,{passive:true});
+</script>
+</body>
+</html>
